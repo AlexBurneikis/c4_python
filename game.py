@@ -13,13 +13,23 @@ class Board:
         for i in range(6):
             for j in range(7):
                 if self.yellow[i][j] == 1:
-                    board[i][j] = "X"
+                    board[i][j] = "Y"
                 elif self.red[i][j] == 1:
-                    board[i][j] = "O"
-        #print the board
+                    board[i][j] = "R"
+
+        #convert empty spaces to .
         for i in range(6):
-            print(board[i])
-        return ""
+            for j in range(7):
+                if board[i][j] == 0:
+                    board[i][j] = "."
+
+        #print the board character by character
+        string = ""
+        for i in range(6):
+            for j in range(7):
+                string += board[i][j] + " "
+            string += "\n"
+        return string
 
     def push(self, column):
         #if the column is full, throw an error

@@ -6,10 +6,8 @@ def get_move(board):
     best_move = board.legal_moves()[0]
     for move in board.legal_moves():
         board.push(move)
-        score = minimax(board, 3, float('-inf'), float('inf'))
+        score = minimax(board, 6, float('-inf'), float('inf'))
         board.pop()
-
-        print(board)
 
         if not board.turn: score = -score
 
