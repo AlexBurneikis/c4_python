@@ -5,6 +5,8 @@ class Board:
         #yellow is True, red is False
         self.turn = True
         
+        self.last_move = None
+        
     def __str__(self):
         #combine the two boards into one using X for yellow and O for red
         board = [[0 for i in range(7)] for j in range(6)]
@@ -35,7 +37,21 @@ class Board:
         
         #change the turn
         self.turn = not self.turn
+        
+        self.last_move = column
 
+    def pop(self):
+        column = self.last_move
+        for i in range (0, 6, 1):
+            if self.yellow[i][column] or self.red[i][column]:
+                self.yellow[i][column] = 0
+                self.red[i][column] = 0
+                break
+                
+        self.turn = not self.turn
+                
+
+        
     def legal_moves(self):
         #return the numbers of the columns that are not full
         return [i for i in range(7) if self.yellow[0][i] == 0 and self.red[0][i] == 0]
