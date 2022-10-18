@@ -11,5 +11,5 @@ while not board.is_game_over():
     board.push(move)
 
 print(board)
-print("Game over")
 print(board.moves)
+print(board.result())

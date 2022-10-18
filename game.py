@@ -95,3 +95,15 @@ class Board:
             return True
 
         return False
+
+    def result(self):
+        #return the winner
+        if self.is_game_over():
+            if len(self.legal_moves()) == 0:
+                return "Tie"
+            if self.turn:
+                return "Red"
+            else:
+                return "Yellow"
+        else:
+            return None
