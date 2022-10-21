@@ -45,12 +45,12 @@ def minimax(board, depth, alpha, beta):
         return best_score
 
 def zobrist_hash(board):
-    # iterate over every column and row in the board and XOR the hash of the piece in that position
-    hash = 2
+    # I am adding instead of xor bc i live on the edge
+    hash = 0
     for i in range(6):
         for j in range(7):
             if board.yellow[i][j] == 1:
-                hash ^= hashlist[i*7 + j]
+                hash += hashlist[i*7 + j]
             if board.red[i][j] == 1:
-                hash ^= hashlist[i*7 + j + 42]
+                hash += hashlist[i*7 + j + 42]
     return hash
