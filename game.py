@@ -7,6 +7,15 @@ class Board:
         
         self.moves = []
         
+    def copy(self):
+        #return a copy of the board
+        board = Board()
+        board.yellow = [row[:] for row in self.yellow]
+        board.red = [row[:] for row in self.red]
+        board.turn = self.turn
+        board.moves = self.moves[:]
+        return board
+    
     def __str__(self):
         #combine the two boards into one using X for yellow and O for red
         board = [[0 for i in range(7)] for j in range(6)]
