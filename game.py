@@ -124,8 +124,8 @@ class Board:
             if len(self.legal_moves()) == 0:
                 return "Tie"
             if self.turn:
-                return "Red"
+                return "Red Win"
             else:
-                return "Yellow"
+                return "Yellow Win"
         else:
             return None
