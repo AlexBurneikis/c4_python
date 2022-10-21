@@ -34,10 +34,13 @@ class Board:
 
         #print the board character by character
         string = ""
-        for i in range(6):
+        for i in range(5):
             for j in range(7):
                 string += board[i][j] + " "
             string += "\n"
+        #last line without newline
+        for j in range(7):
+            string += board[5][j] + " "
         return string
 
     def push(self, column):
