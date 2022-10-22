@@ -8,7 +8,7 @@ def main():
     while not board.is_game_over():
         print(board)
         print("Turn:", "Yellow" if board.turn else "Red")
-        move = get_move(board, 9)
+        move = get_move(board, 12)
         board.push(move)
         print("Move:", move)
 
@@ -17,5 +17,4 @@ def main():
     print(board.result())
 
 if __name__ == "__main__":
-    #time it
     print(timeit(main, number=1))
